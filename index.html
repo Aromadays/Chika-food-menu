@@ -4,365 +4,261 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Chika - Chinese and Sri Lankan Cuisines</title>
+    <title>Chika | Chinese & Sri Lankan Cuisines</title>
 
     <style>
-        /* 1. GENERAL WEBSITE DESIGN */
+        :root {
+            --orange: #d96b27;
+            --dark-orange: #a94316;
+            --brown: #4a2c20;
+            --cream: #fff8ef;
+            --light-orange: #fbe5d0;
+            --white: #ffffff;
+        }
 
         * {
             box-sizing: border-box;
         }
 
-        html {
-            scroll-behavior: smooth;
-        }
-
         body {
             margin: 0;
-            font-family: Arial, Helvetica, sans-serif;
-            background-color: #fff7ec;
-            color: #493020;
-            line-height: 1.7;
+            font-family: Arial, sans-serif;
+            background: var(--cream);
+            color: var(--brown);
+            line-height: 1.6;
         }
-
-        h1, h2, h3 {
-            font-family: Georgia, "Times New Roman", serif;
-        }
-
-        h2 {
-            color: #98451f;
-            margin-bottom: 12px;
-        }
-
-        p {
-            margin-top: 8px;
-        }
-
-        /* 2. HEADER */
 
         header {
-            background: linear-gradient(135deg, #542b1c, #a64e24);
-            color: #fff5df;
+            background: var(--brown);
+            color: var(--white);
             text-align: center;
-            padding: 45px 20px;
+            padding: 35px 15px;
         }
 
         header h1 {
-            font-size: clamp(40px, 7vw, 65px);
-            letter-spacing: 5px;
             margin: 0;
-            color: #ffdda5;
-        }
-
-        header h2 {
-            color: white;
-            margin: 5px 0;
+            font-size: 2.5rem;
+            color: #ffbd7b;
         }
 
         header p {
-            font-size: 18px;
             margin-bottom: 0;
         }
 
-        /* 3. NAVIGATION */
-
         nav {
-            background-color: #e8a15c;
-            padding: 14px;
+            background: var(--orange);
             text-align: center;
-            position: sticky;
-            top: 0;
-            z-index: 10;
+            padding: 12px;
         }
 
         nav a {
-            display: inline-block;
-            color: #542b1c;
+            color: white;
             text-decoration: none;
             font-weight: bold;
-            margin: 5px 14px;
+            margin: 0 14px;
         }
 
         nav a:hover {
-            color: white;
+            text-decoration: underline;
         }
 
-        /* 4. MAIN CONTENT */
-
         main {
-            max-width: 1150px;
+            max-width: 1100px;
             margin: auto;
-            padding: 25px 20px;
+            padding: 20px;
         }
 
         section {
-            margin-bottom: 40px;
-            scroll-margin-top: 80px;
+            margin: 30px 0;
+        }
+
+        h2 {
+            color: var(--dark-orange);
+            text-align: center;
         }
 
         .intro {
             text-align: center;
-            padding: 25px 15px;
         }
 
-        .intro p {
-            max-width: 750px;
-            margin: 10px auto;
-        }
-
-        /* 5. RECOMMENDED DISH */
-
-        .recommended {
-            background-color: #f5e2c8;
-            border-radius: 18px;
-            padding: 28px;
-            text-align: center;
-        }
-
-        .recommended img {
+        .featured-image {
             display: block;
             width: 100%;
-            max-width: 520px;
-            max-height: 360px;
+            max-width: 650px;
+            max-height: 420px;
             object-fit: cover;
-            border-radius: 14px;
             margin: 20px auto;
-        }
-
-        /* 6. VIDEO */
-
-        .video-section {
-            text-align: center;
+            border-radius: 18px;
+            box-shadow: 0 5px 15px #00000020;
         }
 
         video {
+            display: block;
             width: 100%;
             max-width: 650px;
-            border-radius: 14px;
-            background-color: #3e2419;
+            margin: 20px auto;
+            border-radius: 18px;
+            background: #000;
         }
 
-        /* 7. MENU TABLE */
-
-        .table-wrapper {
-            overflow-x: auto;
-            border-radius: 12px;
-            box-shadow: 0 4px 14px #75442118;
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 20px;
         }
 
-        .menu-table {
+        .food-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px #00000012;
+            padding-bottom: 15px;
+        }
+
+        .food-card img {
             width: 100%;
-            border-collapse: collapse;
-            background-color: white;
-        }
-
-        .menu-table th {
-            background-color: #874020;
-            color: white;
-            padding: 14px 10px;
-        }
-
-        .menu-table td {
-            padding: 12px 10px;
-            border-bottom: 1px solid #ead8c5;
-            text-align: center;
-        }
-
-        .menu-table tbody tr:hover {
-            background-color: #fff1df;
-        }
-
-        .food-image {
-            width: 100px;
-            height: 85px;
+            height: 190px;
             object-fit: cover;
-            border-radius: 9px;
-            display: block;
-            margin: auto;
         }
 
-        .food-name {
-            font-weight: bold;
-            text-align: left !important;
+        .food-card h3 {
+            margin: 12px 15px 5px;
+        }
+
+        .food-card p {
+            margin: 0 15px;
         }
 
         .price {
-            color: #98451f;
+            color: var(--dark-orange);
             font-weight: bold;
-            white-space: nowrap;
         }
 
-        input[type="checkbox"] {
-            width: 20px;
-            height: 20px;
-            accent-color: #a64e24;
-            cursor: pointer;
+        .order-box {
+            background: white;
+            padding: 22px;
+            border-radius: 16px;
+            box-shadow: 0 4px 15px #00000012;
+        }
+
+        .table-wrapper {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 600px;
+        }
+
+        th {
+            background: var(--brown);
+            color: white;
+        }
+
+        th, td {
+            padding: 12px 10px;
+            text-align: center;
+            border-bottom: 1px solid #ead8c8;
+        }
+
+        td:first-child {
+            text-align: left;
         }
 
         input[type="number"] {
             width: 70px;
-            padding: 9px;
-            border: 1px solid #d4b79a;
+            padding: 8px;
+            border: 1px solid #c9b3a0;
             border-radius: 7px;
         }
 
-        input, textarea {
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            width: 100%;
+            padding: 12px;
+            margin-top: 6px;
+            border: 1px solid #c9b3a0;
+            border-radius: 8px;
             font: inherit;
         }
 
-        /* 8. ORDER SUMMARY */
+        .customer-fields {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 16px;
+            margin-top: 22px;
+        }
 
-        .order-summary {
-            background-color: #f5e2c8;
-            border: 1px solid #e4c5a0;
-            border-radius: 14px;
-            padding: 22px;
+        label.field-label {
+            display: block;
+            font-weight: bold;
+        }
+
+        .summary {
             margin-top: 25px;
+            padding: 18px;
+            border-radius: 12px;
+            background: var(--light-orange);
         }
 
         #summaryList {
             padding-left: 22px;
         }
 
-        #summaryList li {
-            margin-bottom: 8px;
+        #emptyMessage {
+            color: #755d4f;
         }
 
-        .empty-message {
-            color: #755c4a;
-        }
-
-        .total-line {
-            border-top: 2px solid #d3ae87;
-            padding-top: 15px;
-            margin-top: 15px;
-            display: flex;
-            justify-content: space-between;
-            gap: 12px;
-            font-size: 22px;
+        .total {
+            font-size: 1.4rem;
             font-weight: bold;
-            color: #793819;
+            color: var(--dark-orange);
         }
 
-        /* 9. CUSTOMER FORM */
-
-        .customer-form {
-            background-color: white;
-            border: 1px solid #ead8c5;
-            border-radius: 14px;
-            padding: 25px;
-            margin-top: 25px;
-        }
-
-        .form-group {
-            margin-bottom: 18px;
-        }
-
-        .form-group label {
+        button {
             display: block;
-            font-weight: bold;
-            margin-bottom: 6px;
-        }
-
-        .form-group input,
-        .form-group textarea {
             width: 100%;
-            padding: 12px;
-            border: 1px solid #d4b79a;
-            border-radius: 8px;
-            background-color: #fffcf7;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: 2px solid #d98a45;
-            border-color: #a64e24;
-        }
-
-        .submit-button {
-            width: 100%;
-            padding: 15px;
+            padding: 14px;
+            margin-top: 20px;
             border: none;
             border-radius: 9px;
-            background-color: #98451f;
+            background: var(--orange);
             color: white;
-            font-size: 17px;
+            font-size: 1rem;
             font-weight: bold;
             cursor: pointer;
         }
 
-        .submit-button:hover {
-            background-color: #6e3019;
+        button:hover {
+            background: var(--dark-orange);
         }
-
-        .submit-button:disabled {
-            opacity: 0.65;
-            cursor: wait;
-        }
-
-        .form-note {
-            font-size: 13px;
-            color: #755c4a;
-        }
-
-        /* 10. FOOTER */
 
         footer {
-            background-color: #542b1c;
-            color: #fff5df;
+            margin-top: 40px;
+            padding: 22px;
             text-align: center;
-            padding: 28px 15px;
+            background: var(--brown);
+            color: white;
         }
 
-        footer h3 {
-            color: #ffdda5;
-        }
-
-        footer p {
-            margin: 5px;
-        }
-
-        /* 11. MOBILE-FRIENDLY DESIGN */
-
-        @media (max-width: 650px) {
-            main {
-                padding: 18px 12px;
-            }
-
-            header {
-                padding: 30px 12px;
-            }
-
-            nav {
-                position: static;
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 2rem;
             }
 
             nav a {
-                margin: 4px 8px;
+                display: inline-block;
+                margin: 5px 8px;
             }
 
-            .recommended {
-                padding: 18px;
+            main {
+                padding: 12px;
             }
 
-            .menu-table th,
-            .menu-table td {
-                padding: 8px 6px;
-                font-size: 13px;
-            }
-
-            .food-image {
-                width: 65px;
-                height: 60px;
-            }
-
-            input[type="number"] {
-                width: 58px;
-                padding: 7px 4px;
-            }
-
-            .customer-form {
-                padding: 18px;
+            .order-box {
+                padding: 12px;
             }
         }
     </style>
@@ -370,92 +266,124 @@
 
 <body>
 
-    <!-- 1. WEBSITE TITLE AND INTRODUCTION -->
+<header>
+    <h1>Chika</h1>
+    <p>Chinese and Sri Lankan Cuisines</p>
+    <p>Delicious flavours, made for you!</p>
+</header>
 
-    <header>
-        <h1>CHIKA</h1>
-        <h2>Chinese and Sri Lankan Cuisines</h2>
-        <p>A Taste of Two Cultures!</p>
-    </header>
+<nav>
+    <a href="#home">Home</a>
+    <a href="#menu">Menu</a>
+    <a href="#order">Order Now</a>
+</nav>
 
-    <nav>
-        <a href="#home">Home</a>
-        <a href="#recommended">Recommended Dish</a>
-        <a href="#video">Food Video</a>
-        <a href="#menu">Order Food</a>
-    </nav>
+<main>
 
-    <main>
+    <!-- HOME SECTION -->
+    <section id="home" class="intro">
+        <h2>Welcome to Chika!</h2>
 
-        <section id="home" class="intro">
-            <h2>Welcome to Chika!</h2>
+        <p>
+            Enjoy the delicious taste of Chinese and Sri Lankan food.
+            Explore our menu, choose your favourite dishes, and place your order!
+        </p>
+
+        <img
+            class="featured-image"
+            src="IMG_0942.jpeg"
+            alt="Recommended food at Chika"
+        />
+
+        <h2>A Taste of Chika</h2>
+
+        <video controls>
+            <source
+                src="gemini_generated_video_07E44F0C.mp4"
+                type="video/mp4"
+            />
+            Your browser does not support this video.
+        </video>
+    </section>
+
+    <!-- MENU SECTION -->
+    <section id="menu">
+        <h2>Our Menu</h2>
+
+        <div class="menu-grid">
+
+            <article class="food-card">
+                <img src="IMG_0884.jpeg" alt="String Hoppers">
+                <h3>String Hoppers</h3>
+                <p class="price">฿50</p>
+            </article>
+
+            <article class="food-card">
+                <img src="IMG_0942.jpeg" alt="Chicken Kottu">
+                <h3>Chicken Kottu</h3>
+                <p class="price">฿99</p>
+            </article>
+
+            <article class="food-card">
+                <img src="IMG_0885.jpeg" alt="Watalappam">
+                <h3>Watalappam</h3>
+                <p class="price">฿45</p>
+            </article>
+
+            <article class="food-card">
+                <img
+                    src="att.0EblL3iy1TuhA9otUa_j9LIss-w7XNhNIniMLP1qJzo.jpeg"
+                    alt="Dumplings"
+                >
+                <h3>Dumplings</h3>
+                <p class="price">฿69</p>
+            </article>
+
+            <article class="food-card">
+                <img
+                    src="att.cD9CHaBgAXsMvId6FqKtjbFGZsBob8vgQclLr9DGM50.jpeg"
+                    alt="Peking Duck"
+                >
+                <h3>Peking Duck</h3>
+                <p class="price">฿250</p>
+            </article>
+
+            <article class="food-card">
+                <img
+                    src="att.fKm9a83uq_y7iB5y5JjFaqIEErB-IXpEGW3AHlleuWM.jpeg"
+                    alt="Lanzhou Ramen"
+                >
+                <h3>Lanzhou Ramen</h3>
+                <p class="price">฿120</p>
+            </article>
+
+        </div>
+    </section>
+
+    <!-- ORDER SECTION -->
+    <section id="order">
+        <h2>Place Your Order</h2>
+
+        <div class="order-box">
 
             <p>
-                Welcome to Chika, where the delicious flavours of
-                Chinese and Sri Lankan cuisines come together.
-                Discover traditional favourites, delicious meals,
-                and sweet treats made for every food lover.
-            </p>
-        </section>
-
-        <!-- 2. RECOMMENDED FOOD -->
-
-        <section id="recommended" class="recommended">
-            <h2>Our Recommended Dish</h2>
-
-            <h3>Chicken Kottu</h3>
-
-            <img src="IMG_0942.jpeg"
-                 alt="Sri Lankan chicken kottu"
-                 width="350">
-
-            <p>
-                Chicken Kottu is a popular Sri Lankan dish prepared
-                with chopped roti, vegetables, chicken, and spices.
-                It is full of flavour and perfect for a satisfying meal.
-            </p>
-        </section>
-
-        <!-- 3. FOOD VIDEO -->
-
-        <section id="video" class="video-section">
-            <h2>A Taste of Our Food</h2>
-
-            <video controls preload="metadata">
-                <source src="gemini_generated_video_07E44F0C.mp4"
-                        type="video/mp4">
-                Your browser does not support the video element.
-            </video>
-
-            <p>
-                Enjoy a short video celebrating delicious food
-                and the joy of cooking.
-            </p>
-        </section>
-
-        <!-- 4. FOOD ORDERING FORM -->
-
-        <section id="menu">
-            <h2>Our Food Menu</h2>
-
-            <p>
-                Choose your favourite dishes, select the quantities,
-                and see your total update automatically.
+                Tick the box beside each dish you want.
+                Unselected dishes will not be added to your order.
             </p>
 
-            <form id="orderForm"
-                  action="https://formspree.io/f/xqpejlyb"
-                  method="POST">
+            <form
+                id="orderForm"
+                action="https://formspree.io/f/xqpejlyb"
+                method="POST"
+            >
 
                 <div class="table-wrapper">
-                    <table class="menu-table">
-
+                    <table>
                         <thead>
                             <tr>
-                                <th>Food Picture</th>
-                                <th>Food Name</th>
-                                <th>Price</th>
                                 <th>Select</th>
+                                <th>Food</th>
+                                <th>Price</th>
                                 <th>Quantity</th>
                                 <th>Subtotal</th>
                             </tr>
@@ -463,404 +391,386 @@
 
                         <tbody>
 
-                            <!-- STRING HOPPERS -->
-
-                            <tr data-food="String Hoppers"
-                                data-price="50">
+                            <tr data-food="String Hoppers" data-price="50">
                                 <td>
-                                    <img class="food-image"
-                                         src="IMG_0884.jpeg"
-                                         alt="String hoppers">
+                                    <input
+                                        type="checkbox"
+                                        class="food-check"
+                                        name="selected_string_hoppers"
+                                        value="yes"
+                                        aria-label="Select String Hoppers"
+                                    >
                                 </td>
-                                <td class="food-name">String Hoppers</td>
-                                <td class="price">฿50</td>
+                                <td>String Hoppers</td>
+                                <td>฿50</td>
                                 <td>
-                                    <input type="checkbox"
-                                           class="food-check"
-                                           name="String Hoppers"
-                                           value="Selected"
-                                           aria-label="Select String Hoppers">
+                                    <input
+                                        type="number"
+                                        class="quantity"
+                                        name="quantity_string_hoppers"
+                                        value="1"
+                                        min="1"
+                                        max="99"
+                                        disabled
+                                        aria-label="String Hoppers quantity"
+                                    >
                                 </td>
-                                <td>
-                                    <input type="number"
-                                           class="quantity"
-                                           name="String Hoppers Quantity"
-                                           min="1" max="99" step="1"
-                                           value="0"
-                                           aria-label="String Hoppers quantity">
-                                </td>
-                                <td class="subtotal">฿0</td>
+                                <td class="subtotal">—</td>
                             </tr>
 
-                            <!-- KOTTU -->
-
-                            <tr data-food="Chicken Kottu"
-                                data-price="99">
+                            <tr data-food="Chicken Kottu" data-price="99">
                                 <td>
-                                    <img class="food-image"
-                                         src="IMG_0942.jpeg"
-                                         alt="Chicken Kottu">
+                                    <input
+                                        type="checkbox"
+                                        class="food-check"
+                                        name="selected_chicken_kottu"
+                                        value="yes"
+                                        aria-label="Select Chicken Kottu"
+                                    >
                                 </td>
-                                <td class="food-name">Chicken Kottu</td>
-                                <td class="price">฿99</td>
+                                <td>Chicken Kottu</td>
+                                <td>฿99</td>
                                 <td>
-                                    <input type="checkbox"
-                                           class="food-check"
-                                           name="Chicken Kottu"
-                                           value="Selected"
-                                           aria-label="Select Chicken Kottu">
+                                    <input
+                                        type="number"
+                                        class="quantity"
+                                        name="quantity_chicken_kottu"
+                                        value="1"
+                                        min="1"
+                                        max="99"
+                                        disabled
+                                        aria-label="Chicken Kottu quantity"
+                                    >
                                 </td>
-                                <td>
-                                    <input type="number"
-                                           class="quantity"
-                                           name="Chicken Kottu Quantity"
-                                           min="1" max="99" step="1"
-                                           value="0"
-                                           aria-label="Chicken Kottu quantity">
-                                </td>
-                                <td class="subtotal">฿0</td>
+                                <td class="subtotal">—</td>
                             </tr>
 
-                            <!-- WATALAPPAM -->
-
-                            <tr data-food="Watalappam"
-                                data-price="45">
+                            <tr data-food="Watalappam" data-price="45">
                                 <td>
-                                    <img class="food-image"
-                                         src="IMG_0885.jpeg"
-                                         alt="Watalappam dessert">
+                                    <input
+                                        type="checkbox"
+                                        class="food-check"
+                                        name="selected_watalappam"
+                                        value="yes"
+                                        aria-label="Select Watalappam"
+                                    >
                                 </td>
-                                <td class="food-name">Watalappam</td>
-                                <td class="price">฿45</td>
+                                <td>Watalappam</td>
+                                <td>฿45</td>
                                 <td>
-                                    <input type="checkbox"
-                                           class="food-check"
-                                           name="Watalappam"
-                                           value="Selected"
-                                           aria-label="Select Watalappam">
+                                    <input
+                                        type="number"
+                                        class="quantity"
+                                        name="quantity_watalappam"
+                                        value="1"
+                                        min="1"
+                                        max="99"
+                                        disabled
+                                        aria-label="Watalappam quantity"
+                                    >
                                 </td>
-                                <td>
-                                    <input type="number"
-                                           class="quantity"
-                                           name="Watalappam Quantity"
-                                           min="1" max="99" step="1"
-                                           value="0"
-                                           aria-label="Watalappam quantity">
-                                </td>
-                                <td class="subtotal">฿0</td>
+                                <td class="subtotal">—</td>
                             </tr>
 
-                            <!-- DUMPLINGS -->
-
-                            <tr data-food="Chinese Dumplings"
-                                data-price="69">
+                            <tr data-food="Dumplings" data-price="69">
                                 <td>
-                                    <img class="food-image"
-                                         src="att.0EblL3iy1TuhA9otUa_j9LIss-w7XNhNIniMLP1qJzo.jpeg"
-                                         alt="Chinese dumplings">
+                                    <input
+                                        type="checkbox"
+                                        class="food-check"
+                                        name="selected_dumplings"
+                                        value="yes"
+                                        aria-label="Select Dumplings"
+                                    >
                                 </td>
-                                <td class="food-name">Chinese Dumplings</td>
-                                <td class="price">฿69</td>
+                                <td>Dumplings</td>
+                                <td>฿69</td>
                                 <td>
-                                    <input type="checkbox"
-                                           class="food-check"
-                                           name="Chinese Dumplings"
-                                           value="Selected"
-                                           aria-label="Select Chinese Dumplings">
+                                    <input
+                                        type="number"
+                                        class="quantity"
+                                        name="quantity_dumplings"
+                                        value="1"
+                                        min="1"
+                                        max="99"
+                                        disabled
+                                        aria-label="Dumplings quantity"
+                                    >
                                 </td>
-                                <td>
-                                    <input type="number"
-                                           class="quantity"
-                                           name="Chinese Dumplings Quantity"
-                                           min="1" max="99" step="1"
-                                           value="0"
-                                           aria-label="Dumplings quantity">
-                                </td>
-                                <td class="subtotal">฿0</td>
+                                <td class="subtotal">—</td>
                             </tr>
 
-                            <!-- PEKING DUCK -->
-
-                            <tr data-food="Peking Duck"
-                                data-price="250">
+                            <tr data-food="Peking Duck" data-price="250">
                                 <td>
-                                    <img class="food-image"
-                                         src="att.cD9CHaBgAXsMvId6FqKtjbFGZsBob8vgQclLr9DGM50.jpeg"
-                                         alt="Peking duck">
+                                    <input
+                                        type="checkbox"
+                                        class="food-check"
+                                        name="selected_peking_duck"
+                                        value="yes"
+                                        aria-label="Select Peking Duck"
+                                    >
                                 </td>
-                                <td class="food-name">Peking Duck</td>
-                                <td class="price">฿250</td>
+                                <td>Peking Duck</td>
+                                <td>฿250</td>
                                 <td>
-                                    <input type="checkbox"
-                                           class="food-check"
-                                           name="Peking Duck"
-                                           value="Selected"
-                                           aria-label="Select Peking Duck">
+                                    <input
+                                        type="number"
+                                        class="quantity"
+                                        name="quantity_peking_duck"
+                                        value="1"
+                                        min="1"
+                                        max="99"
+                                        disabled
+                                        aria-label="Peking Duck quantity"
+                                    >
                                 </td>
-                                <td>
-                                    <input type="number"
-                                           class="quantity"
-                                           name="Peking Duck Quantity"
-                                           min="1" max="99" step="1"
-                                           value="0"
-                                           aria-label="Peking Duck quantity">
-                                </td>
-                                <td class="subtotal">฿0</td>
+                                <td class="subtotal">—</td>
                             </tr>
 
-                            <!-- LANZHOU RAMEN -->
-
-                            <tr data-food="Lanzhou Ramen"
-                                data-price="120">
+                            <tr data-food="Lanzhou Ramen" data-price="120">
                                 <td>
-                                    <img class="food-image"
-                                         src="att.fKm9a83uq_y7iB5y5JjFaqIEErB-IXpEGW3AHlleuWM.jpeg"
-                                         alt="Lanzhou ramen">
+                                    <input
+                                        type="checkbox"
+                                        class="food-check"
+                                        name="selected_lanzhou_ramen"
+                                        value="yes"
+                                        aria-label="Select Lanzhou Ramen"
+                                    >
                                 </td>
-                                <td class="food-name">Lanzhou Ramen</td>
-                                <td class="price">฿120</td>
+                                <td>Lanzhou Ramen</td>
+                                <td>฿120</td>
                                 <td>
-                                    <input type="checkbox"
-                                           class="food-check"
-                                           name="Lanzhou Ramen"
-                                           value="Selected"
-                                           aria-label="Select Lanzhou Ramen">
+                                    <input
+                                        type="number"
+                                        class="quantity"
+                                        name="quantity_lanzhou_ramen"
+                                        value="1"
+                                        min="1"
+                                        max="99"
+                                        disabled
+                                        aria-label="Lanzhou Ramen quantity"
+                                    >
                                 </td>
-                                <td>
-                                    <input type="number"
-                                           class="quantity"
-                                           name="Lanzhou Ramen Quantity"
-                                           min="1" max="99" step="1"
-                                           value="0"
-                                           aria-label="Lanzhou Ramen quantity">
-                                </td>
-                                <td class="subtotal">฿0</td>
+                                <td class="subtotal">—</td>
                             </tr>
 
                         </tbody>
                     </table>
                 </div>
 
-                <!-- 5. AUTOMATIC ORDER SUMMARY -->
+                <!-- ORDER SUMMARY -->
+                <div class="summary">
+                    <h3>Your Order Summary</h3>
 
-                <div class="order-summary">
-                    <h2>Your Order Summary</h2>
-
-                    <p id="emptyMessage" class="empty-message">
-                        You haven't selected any dishes yet.
+                    <p id="emptyMessage">
+                        You haven't selected any food yet.
                     </p>
 
                     <ul id="summaryList"></ul>
 
-                    <div class="total-line">
-                        <span>Total Price</span>
-                        <span id="totalPrice">฿0</span>
-                    </div>
-
-                    <p class="form-note">
-                        Prices are displayed in Thai baht (THB).
+                    <p class="total">
+                        Total: <span id="totalPrice">฿0</span>
                     </p>
                 </div>
 
-                <!-- These hidden fields send the summary to Formspree -->
+                <!-- CUSTOMER INFORMATION -->
+                <div class="customer-fields">
 
-                <input type="hidden"
-                       name="Order Summary"
-                       id="orderSummary">
-
-                <input type="hidden"
-                       name="Total Price (THB)"
-                       id="orderTotal">
-
-                <!-- 6. CUSTOMER INFORMATION -->
-
-                <div class="customer-form">
-                    <h2>Customer Information</h2>
-
-                    <div class="form-group">
-                        <label for="customer">Full Name:</label>
-                        <input type="text"
-                               id="customer"
-                               name="Customer Name"
-                               autocomplete="name"
-                               required>
+                    <div>
+                        <label class="field-label" for="customerName">
+                            Your Name
+                        </label>
+                        <input
+                            type="text"
+                            id="customerName"
+                            name="Customer Name"
+                            autocomplete="name"
+                            required
+                        >
                     </div>
 
-                    <div class="form-group">
-                        <label for="phone">Phone Number:</label>
-                        <input type="tel"
-                               id="phone"
-                               name="Phone Number"
-                               autocomplete="tel"
-                               required>
+                    <div>
+                        <label class="field-label" for="customerEmail">
+                            Your Email
+                        </label>
+                        <input
+                            type="email"
+                            id="customerEmail"
+                            name="Customer Email"
+                            autocomplete="email"
+                            required
+                        >
                     </div>
 
-                    <div class="form-group">
-                        <label for="address">Delivery Address:</label>
-                        <textarea id="address"
-                                  name="Delivery Address"
-                                  rows="4"
-                                  autocomplete="street-address"
-                                  required></textarea>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="notes">Additional Requests:</label>
-                        <textarea id="notes"
-                                  name="Additional Requests"
-                                  rows="3"></textarea>
-                    </div>
-
-                    <button type="submit"
-                            class="submit-button">
-                        Send Order to Email
-                    </button>
-
-                    <p class="form-note">
-                        Your order is a request and will need
-                        confirmation from Chika.
-                    </p>
                 </div>
+
+                <div style="margin-top: 16px;">
+                    <label class="field-label" for="customerAddress">
+                        Delivery Address / Notes
+                    </label>
+                    <textarea
+                        id="customerAddress"
+                        name="Delivery Address or Notes"
+                        rows="3"
+                        placeholder="Enter your address or any special requests"
+                    ></textarea>
+                </div>
+
+                <!-- These fields are filled by JavaScript -->
+                <input
+                    type="hidden"
+                    id="orderSummaryInput"
+                    name="Order Summary"
+                >
+
+                <input
+                    type="hidden"
+                    id="totalPriceInput"
+                    name="Total Price (THB)"
+                    value="0"
+                >
+
+                <button type="submit">Submit My Order</button>
 
             </form>
-        </section>
+        </div>
+    </section>
 
-    </main>
+</main>
 
-    <!-- 7. FOOTER -->
+<footer>
+    <p>© 2026 Chika | Chinese and Sri Lankan Cuisines</p>
+    <p>Thank you for choosing Chika!</p>
+</footer>
 
-    <footer>
-        <h3>Thank You for Choosing Chika!</h3>
-        <p>Chinese and Sri Lankan Cuisines</p>
-        <p>A Taste of Two Cultures!</p>
-    </footer>
+<script>
+    const orderForm = document.getElementById("orderForm");
+    const foodRows = document.querySelectorAll("#orderForm tbody tr");
+    const summaryList = document.getElementById("summaryList");
+    const emptyMessage = document.getElementById("emptyMessage");
+    const totalPriceDisplay = document.getElementById("totalPrice");
+    const summaryInput = document.getElementById("orderSummaryInput");
+    const totalInput = document.getElementById("totalPriceInput");
 
-    <!-- 8. JAVASCRIPT FOR PRICE CALCULATIONS -->
+    function updateOrder() {
+        let total = 0;
+        const selectedItems = [];
 
-    <script>
-        const orderForm = document.getElementById("orderForm");
-        const foodRows = document.querySelectorAll("[data-food]");
-        const summaryList = document.getElementById("summaryList");
-        const emptyMessage = document.getElementById("emptyMessage");
-        const totalPrice = document.getElementById("totalPrice");
-        const orderSummary = document.getElementById("orderSummary");
-        const orderTotal = document.getElementById("orderTotal");
+        // Clear the previous summary every time the order changes.
+        summaryList.replaceChildren();
 
-        // Format amounts as Thai baht.
-        function formatBaht(amount) {
-            return "฿" + amount.toLocaleString("en-US");
-        }
-
-        // Calculate selected dishes and update the order summary.
-        function updateOrder() {
-            let total = 0;
-            let selectedItems = [];
-
-            foodRows.forEach(function(row) {
-                const foodName = row.dataset.food;
-                const price = Number(row.dataset.price);
-                const checkbox = row.querySelector(".food-check");
-                const quantityInput = row.querySelector(".quantity");
-                const subtotalCell = row.querySelector(".subtotal");
-
-                const quantity = Number(quantityInput.value);
-
-                // Only selected dishes contribute to the total.
-                if (checkbox.checked) {
-                    const subtotal = price * quantity;
-
-                    total += subtotal;
-
-                    selectedItems.push({
-                        name: foodName,
-                        quantity: quantity,
-                        subtotal: subtotal
-                    });
-
-                    subtotalCell.textContent = formatBaht(subtotal);
-                } else {
-                    subtotalCell.textContent = formatBaht(0);
-                }
-            });
-
-            // Clear the previous summary.
-            summaryList.replaceChildren();
-
-            // Display the selected dishes.
-            selectedItems.forEach(function(item) {
-                const listItem = document.createElement("li");
-
-                listItem.textContent =
-                    item.name + " x " + item.quantity +
-                    " = " + formatBaht(item.subtotal);
-
-                summaryList.appendChild(listItem);
-            });
-
-            // Show a message when no food has been selected.
-            emptyMessage.hidden = selectedItems.length > 0;
-
-            // Update the total and the hidden form fields.
-            totalPrice.textContent = formatBaht(total);
-
-            const summaryText = selectedItems.map(function(item) {
-                return item.name + " x " + item.quantity +
-                       " = " + formatBaht(item.subtotal);
-            }).join("\n");
-
-            orderSummary.value = summaryText || "No dishes selected";
-            orderTotal.value = total;
-        }
-
-        // Recalculate when customers select food or change quantities.
         foodRows.forEach(function(row) {
-            row.querySelector(".food-check").addEventListener(
-                "change", updateOrder
-            );
+            const checkbox = row.querySelector(".food-check");
+            const quantityInput = row.querySelector(".quantity");
+            const subtotalCell = row.querySelector(".subtotal");
 
-            row.querySelector(".quantity").addEventListener(
-                "input", updateOrder
-            );
-        });
+            const foodName = row.dataset.food;
+            const price = Number(row.dataset.price);
 
-        // Validate the order before sending it.
-        orderForm.addEventListener("submit", function(event) {
-            updateOrder();
+            // Only selected food can be ordered.
+            quantityInput.disabled = !checkbox.checked;
 
-            const selectedRows = Array.from(foodRows).filter(function(row) {
-                return row.querySelector(".food-check").checked;
-            });
-
-            if (selectedRows.length === 0) {
-                event.preventDefault();
-                alert("Please select at least one dish before ordering.");
+            if (!checkbox.checked) {
+                subtotalCell.textContent = "—";
                 return;
             }
 
-            // Ensure all selected quantities are valid whole numbers.
-            for (const row of selectedRows) {
-                const quantityInput = row.querySelector(".quantity");
-                const quantity = Number(quantityInput.value);
+            const quantity = Number(quantityInput.value);
+            const validQuantity =
+                Number.isInteger(quantity) &&
+                quantity >= 1 &&
+                quantity <= 99;
 
-                if (
-                    !quantityInput.validity.valid ||
-                    !Number.isInteger(quantity) ||
-                    quantity < 1 ||
-                    quantity > 99
-                ) {
-                    event.preventDefault();
-                    quantityInput.focus();
-                    alert("Please enter a whole-number quantity from 1 to 99.");
-                    return;
-                }
+            if (!validQuantity) {
+                subtotalCell.textContent = "Check quantity";
+                return;
             }
 
-            // The browser submits the form to Formspree if valid.
+            const subtotal = price * quantity;
+            total += subtotal;
+
+            subtotalCell.textContent =
+                "฿" + subtotal.toLocaleString("en-US");
+
+            selectedItems.push({
+                name: foodName,
+                quantity: quantity,
+                subtotal: subtotal
+            });
         });
 
-        // Display the initial order summary.
+        // Display only the selected and valid items.
+        selectedItems.forEach(function(item) {
+            const listItem = document.createElement("li");
+
+            listItem.textContent =
+                item.name + " × " + item.quantity +
+                " — ฿" + item.subtotal.toLocaleString("en-US");
+
+            summaryList.appendChild(listItem);
+        });
+
+        emptyMessage.hidden = selectedItems.length > 0;
+
+        totalPriceDisplay.textContent =
+            "฿" + total.toLocaleString("en-US");
+
+        summaryInput.value = selectedItems.map(function(item) {
+            return item.name + " x " + item.quantity +
+                " = ฿" + item.subtotal;
+        }).join("\n");
+
+        totalInput.value = total;
+    }
+
+    // Update the order whenever a checkbox or quantity changes.
+    foodRows.forEach(function(row) {
+        const checkbox = row.querySelector(".food-check");
+        const quantityInput = row.querySelector(".quantity");
+
+        checkbox.addEventListener("change", updateOrder);
+        quantityInput.addEventListener("input", updateOrder);
+        quantityInput.addEventListener("change", updateOrder);
+    });
+
+    // Do not submit an empty order or invalid quantities.
+    orderForm.addEventListener("submit", function(event) {
         updateOrder();
-    </script>
+
+        const selectedCheckboxes =
+            document.querySelectorAll(".food-check:checked");
+
+        if (selectedCheckboxes.length === 0) {
+            event.preventDefault();
+            alert("Please select at least one food item.");
+            return;
+        }
+
+        let invalidQuantity = false;
+
+        selectedCheckboxes.forEach(function(checkbox) {
+            const row = checkbox.closest("tr");
+            const quantityInput = row.querySelector(".quantity");
+            const quantity = Number(quantityInput.value);
+
+            if (
+                !Number.isInteger(quantity) ||
+                quantity < 1 ||
+                quantity > 99
+            ) {
+                invalidQuantity = true;
+                quantityInput.focus();
+            }
+        });
+
+        if (invalidQuantity) {
+            event.preventDefault();
+            alert("Please enter a quantity from 1 to 99 for each selected food.");
+        }
+    });
+
+    // Start with every food unselected.
+    updateOrder();
+</script>
 
 </body>
 </html>
