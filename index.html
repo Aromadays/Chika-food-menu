@@ -1,1 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chika - Chinese and Sri Lankan Cuisines</title>
+</head>
+
+<body>
+
+    <!-- 1. WEBSITE TITLE AND INTRODUCTION -->
+
+    <header>
+        <h1>CHIKA</h1>
+        <h2>Chinese and Sri Lankan Cuisines</h2>
+        <p>A Taste of Two Cultures!</p>
+        <hr>
+    </header>
+
+    <section id="home">
+        <h2>Welcome to Chika!</h2>
+
+        <p>
+            Welcome to Chika, where the delicious flavours of
+            Chinese and Sri Lankan cuisines come together.
+            Discover traditional favourites, delicious meals,
+            and sweet treats made for every food lover.
+        </p>
+    </section>
+
+    <hr>
+
+    <!-- 2. RECOMMENDED FOOD -->
+
+    <section id="recommended">
+        <h2>Our Recommended Dish</h2>
+
+        <h3>Chicken Kottu</h3>
+
+        <img src="images/kottu.jpg"
+             alt="Sri Lankan chicken kottu"
+             width="350">
+
+        <p>
+            Chicken Kottu is a popular Sri Lankan dish prepared
+            with chopped roti, vegetables, chicken, and spices.
+            It is full of flavour and perfect for a satisfying meal.
+        </p>
+    </section>
+
+    <hr>
+
+    <!-- 3. FOOD VIDEO -->
+
+    <section id="video">
+        <h2>A Taste of Our Food</h2>
+
+        <video width="400" controls>
+            <source src="food-video.mp4" type="video/mp4">
+            Your browser does not support the video element.
+        </video>
+
+        <p>
+            Enjoy a short video celebrating delicious food
+            and the joy of cooking.
+        </p>
+    </section>
+
+    <hr>
+
+    <!-- 4. FOOD ORDERING FORM -->
+
+    <section id="menu">
+        <h2>Our Food Menu</h2>
+
+        <p>
+            Choose your favourite dishes and enter the quantity
+            you would like to order.
+        </p>
+
+        <form action="https://formspree.io/f/YOUR_FORM_ID"
+              method="POST">
+
+            <table border="1" cellpadding="8">
+
+                <tr>
+                    <th>Food Picture</th>
+                    <th>Food Name</th>
+                    <th>Price (THB)</th>
+                    <th>Select</th>
+                    <th>Quantity</th>
+                </tr>
+
+                <!-- STRING HOPPERS -->
+
+                <tr>
+                    <td>
+                        <img src="images/string-hoppers.jpg"
+                             alt="String hoppers" width="100">
+                    </td>
+                    <td>String Hoppers</td>
+                    <td>฿50</td>
+                    <td>
+                        <input type="checkbox"
+                               name="String Hoppers"
+                               value="Selected">
+                    </td>
+                    <td>
+                        <input type="number"
+                               name="String Hoppers Quantity"
+                               min="1" max="99" value="1">
+                    </td>
+                </tr>
+
+                <!-- KOTTU -->
+
+                <tr>
+                    <td>
+                        <img src="images/kottu.jpg"
+                             alt="Kottu" width="100">
+                    </td>
+                    <td>Chicken Kottu</td>
+                    <td>฿99</td>
+                    <td>
+                        <input type="checkbox"
+                               name="Kottu"
+                               value="Selected">
+                    </td>
+                    <td>
+                        <input type="number"
+                               name="Kottu Quantity"
+                               min="1" max="99" value="1">
+                    </td>
+                </tr>
+
+                <!-- WATALAPPAM -->
+
+                <tr>
+                    <td>
+                        <img src="images/watalappam.jpg"
+                             alt="Watalappam dessert" width="100">
+                    </td>
+                    <td>Watalappam</td>
+                    <td>฿45</td>
+                    <td>
+                        <input type="checkbox"
+                               name="Watalappam"
+                               value="Selected">
+                    </td>
+                    <td>
+                        <input type="number"
+                               name="Watalappam Quantity"
+                               min="1" max="99" value="1">
+                    </td>
+                </tr>
+
+                <!-- DUMPLINGS -->
+
+                <tr>
+                    <td>
+                        <img src="images/dumplings.jpg"
+                             alt="Chinese dumplings" width="100">
+                    </td>
+                    <td>Chinese Dumplings</td>
+                    <td>฿69</td>
+                    <td>
+                        <input type="checkbox"
+                               name="Dumplings"
+                               value="Selected">
+                    </td>
+                    <td>
+                        <input type="number"
+                               name="Dumplings Quantity"
+                               min="1" max="99" value="1">
+                    </td>
+                </tr>
+
+                <!-- PEKING DUCK -->
+
+                <tr>
+                    <td>
+                        <img src="images/peking-duck.jpg"
+                             alt="Peking duck" width="100">
+                    </td>
+                    <td>Peking Duck</td>
+                    <td>฿250</td>
+                    <td>
+                        <input type="checkbox"
+                               name="Peking Duck"
+                               value="Selected">
+                    </td>
+                    <td>
+                        <input type="number"
+                               name="Peking Duck Quantity"
+                               min="1" max="99" value="1">
+                    </td>
+                </tr>
+
+                <!-- LANZHOU RAMEN -->
+
+                <tr>
+                    <td>
+                        <img src="images/lanzhou-ramen.jpg"
+                             alt="Lanzhou ramen" width="100">
+                    </td>
+                    <td>Lanzhou Ramen</td>
+                    <td>฿120</td>
+                    <td>
+                        <input type="checkbox"
+                               name="Lanzhou Ramen"
+                               value="Selected">
+                    </td>
+                    <td>
+                        <input type="number"
+                               name="Lanzhou Ramen Quantity"
+                               min="1" max="99" value="1">
+                    </td>
+                </tr>
+
+            </table>
+
+            <!-- 5. CUSTOMER INFORMATION -->
+
+            <h2>Customer Information</h2>
+
+            <p>
+                <label for="customer">Full Name:</label><br>
+                <input type="text"
+                       id="customer"
+                       name="Customer Name"
+                       required>
+            </p>
+
+            <p>
+                <label for="phone">Phone Number:</label><br>
+                <input type="tel"
+                       id="phone"
+                       name="Phone Number"
+                       required>
+            </p>
+
+            <p>
+                <label for="address">Delivery Address:</label><br>
+                <textarea id="address"
+                          name="Delivery Address"
+                          rows="4"
+                          cols="40"
+                          required></textarea>
+            </p>
+
+            <p>
+                <label for="notes">Additional Requests:</label><br>
+                <textarea id="notes"
+                          name="Additional Requests"
+                          rows="3"
+                          cols="40"></textarea>
+            </p>
+
+            <p>
+                <input type="submit"
+                       value="Send Order to Email">
+            </p>
+
+        </form>
+    </section>
+
+    <hr>
+
+    <!-- 6. FOOTER -->
+
+    <footer>
+        <h3>Thank You for Choosing Chika!</h3>
+        <p>Chinese and Sri Lankan Cuisines</p>
+        <p>A Taste of Two Cultures!</p>
+    </footer>
+
+</body>
+</html>
 
